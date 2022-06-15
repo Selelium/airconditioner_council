@@ -1,17 +1,26 @@
+import 'package:airconditioner_council/User/vote_page.dart';
 import 'package:flutter/material.dart';
+import 'User/room_id_input_page.dart';
+import 'User/vote_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  //ローカルに部屋IDが保存されている場合は部屋IDページを飛ばして投票ページへ
+  var temp = 1;
+  if (temp == 1) {
+    runApp(Top1());
+  } else {
+    runApp(Top2());
+  }
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Top1 extends StatelessWidget {
+  Top1({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'エアコン議会',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +33,32 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: RoomIdInputPage(),
+    );
+  }
+}
+
+class Top2 extends StatelessWidget {
+  Top2({Key? key}) : super(key: key);
+  // This widget is the root of your application.
+  String roomId = "123456"; //ローカルに保存してある部屋IDを取得
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'エアコン議会',
+      theme: ThemeData(
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: Colors.blue,
+      ),
+      home: VotePage(roomId),
     );
   }
 }
