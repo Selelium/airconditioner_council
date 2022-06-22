@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AdminRoomidSettingPage extends StatelessWidget {
   AdminRoomidSettingPage(this.roomId);
   String roomId;
+  bool notification = true;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +30,16 @@ class AdminRoomidSettingPage extends StatelessWidget {
               ),
             ],
           ),
+          SwitchListTile(
+              title: Text('この部屋の通知を有効にする'),
+              value: notification,
+              onChanged: (bool value) {
+                notification = value;
+
+                //通知設定処理
+                if (notification) {
+                } else {}
+              }),
         ]));
   }
 }
