@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'admin_roomid_list_page.dart';
 
 class AdminRoomidSettingPage extends StatelessWidget {
   AdminRoomidSettingPage(this.roomId);
@@ -21,11 +22,29 @@ class AdminRoomidSettingPage extends StatelessWidget {
             alignment: MainAxisAlignment.spaceBetween,
             children: [
               ElevatedButton(
-                onPressed: () {}, //部屋IDの削除APIを叩く
+                onPressed: () {
+                  final snackBar = SnackBar(
+                    content: Text('削除しました'),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdminRoomidListPage()));
+                }, //部屋IDの削除APIを叩く
                 child: Text('削除'),
               ),
               ElevatedButton(
-                onPressed: () {}, //部屋IDの追加APIを叩く
+                onPressed: () {
+                  final snackBar = SnackBar(
+                    content: Text('追加しました'),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdminRoomidListPage()));
+                }, //部屋IDの追加APIを叩く
                 child: Text('追加'),
               ),
             ],
