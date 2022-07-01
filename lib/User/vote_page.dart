@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../admin/admin_login_page.dart';
+import 'voting_result.dart';
 
 class VotePage extends StatelessWidget {
   VotePage(this.roomId);
@@ -19,15 +20,30 @@ class VotePage extends StatelessWidget {
               alignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  onPressed: () {}, //設定温度高の投票APIを叩く
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VotingResult("寒い")));
+                  }, //設定温度高の投票APIを叩く
                   child: Text('寒い'),
                 ),
                 ElevatedButton(
-                  onPressed: () {}, //設定温度維持の投票APIを叩く
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VotingResult("ちょうどいい")));
+                  }, //設定温度維持の投票APIを叩く
                   child: Text('ちょうどいい'),
                 ),
                 ElevatedButton(
-                  onPressed: () {}, //設定温度低の投票APIを叩く
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VotingResult("暑い")));
+                  }, //設定温度低の投票APIを叩く
                   child: Text('暑い'),
                 ),
               ],
