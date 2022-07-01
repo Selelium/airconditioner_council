@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'admin_setting_page.dart';
 
 class AdminApiPage extends StatelessWidget {
   String ApiUrl = "https:/example.com/api?settings=aircoun";
@@ -19,7 +20,16 @@ class AdminApiPage extends StatelessWidget {
             alignment: MainAxisAlignment.spaceBetween,
             children: [
               ElevatedButton(
-                onPressed: () {}, //部屋IDの追加APIを叩く
+                onPressed: () {
+                  final snackBar = SnackBar(
+                    content: Text('更新しました'),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => AdminSettingPage()));
+                }, //部屋IDの追加APIを叩く
                 child: Text('更新'),
               ),
             ],
